@@ -1,0 +1,39 @@
+html {
+	background: white;
+}
+
+body {
+	padding: 3em;
+	width: 40em;
+	margin: 0 auto;
+	background: #eee;
+	font-family: sans-serif;
+}
+
+fieldset {
+	background: grey;
+	border: 0;
+	padding: 1em;
+}
+	input {
+		font-size: 18px;
+		width: 40%;
+		float: left;
+	}
+
+input:first-of-type {
+	margin: 0 8% 0 5%;
+}
+
+	::-webkit-input-placeholder {
+		color: black;
+	}
+
+table {
+	width: 100%;
+	margin-bottom: 3em;
+}
+td {
+	border: 1px solid lightgrey;
+	padding: 1em;
+}
