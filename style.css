@@ -16,6 +16,7 @@ fieldset {
 	background: #524d47;
 	border: 0;
 	padding: 1em;
+	margin: -1em;
 }
 	input {
 		font-size: 14px;
