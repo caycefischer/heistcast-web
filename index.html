@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="myapp">
+<html ng-app="HeistCast">
 <head>
 	<meta charset="UTF-8">
 	<title>HeistCast</title>
@@ -11,14 +11,14 @@
 	<script src='https://cdn.firebase.com/v0/firebase.js'></script>
 	<script src='https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js'></script>
 </head>
-<body ng-controller="MyController">
+<body ng-controller="ListController">
 	
 	<img src="heist-logo.svg" alt="HeistCast" class="logo">
 
 	<table>
-		<tr ng-repeat="link in links">
-			<td>{{link.title}}</td>
-			<td><a href="{{link.body}}">{{link.body}}</a></td>
+		<tr ng-repeat="entry in list">
+			<td>{{entry.title}}</td>
+			<td><a href="{{entry.body}}">{{entry.body}}</a></td>
 		</tr>
 	</table>
 
@@ -28,15 +28,15 @@
 	</fieldset>
 
 	<script>
-		var app = angular.module("myapp", ["firebase"]);
+		var app = angular.module("HeistCast", ["firebase"]);
 
-		function MyController($scope, $firebase) {
-			var ref = new Firebase("https://heistcast.firebaseio.com/");
-			$scope.links = $firebase(ref);
+		function ListController($scope, $firebase) {
+			var cloud = new Firebase("https://heistcast.firebaseio.com/");
+			$scope.list = $firebase(cloud);
 			$scope.addLink = function(e) {
 				if (e.keyCode !=13) return;
-				$scope.links.$add({title: $scope.name, body: $scope.link});
-				$scope.link = "";
+				$scope.list.$add({title: $scope.name, body: $scope.link});
+				$scope.entry = "";
 				$scope.name = "";
 			};
 		}
