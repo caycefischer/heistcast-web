@@ -1,24 +1,27 @@
 html {
-	background: white;
+	background: whitesmoke;
 }
 
 body {
 	padding: 1em;
 	max-width: 40em;
 	margin: 0 auto;
-	background: #fafafa;
+	background: #e0ddd7;
 	font-family: sans-serif;
 	font-size: 14px;
-	border: 1px solid lightgrey;
+	border: 1px solid #bfbbb4;
 }
 
 fieldset {
-	background: grey;
+	background: #524d47;
 	border: 0;
 	padding: 1em;
 }
 	input {
 		font-size: 14px;
+		background: whitesmoke;
+		border: 0;
+		padding: 4px;
 	}
 
 	::-webkit-input-placeholder {
@@ -30,7 +33,17 @@ table {
 	margin-bottom: 3em;
 }
 td {
-	border: 1px solid lightgrey;
+	border: 1px solid #bfbbb4;
 	padding: 1em;
 	background: white;
+}
+
+.logo {
+	width: 150px;
+	margin: 1em auto 3em;
+	display: block;
+}
+
+svg path {
+	fill: ;
 }
