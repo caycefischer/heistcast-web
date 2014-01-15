@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<title>HeistCast</title>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js'></script>
+	<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+	<script src='https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js'></script>
+
+	<style>
+		html {
+			background: white;
+		}
+		body {
+			padding: 3em;
+			width: 40em;
+			margin: 0 auto;
+			background: #eee;
+			font-family: sans-serif;
+		}
+		fieldset {
+			background: grey;
+			border: 0;
+			padding: 1em;
+		}
+		input {
+			font-size: 18px;
+			width: 40%;
+			float: left;
+		}
+		input:first-of-type {
+			margin: 0 8% 0 5%;
+		}
+
+		table {
+			width: 100%;
+			margin-bottom: 3em;
+		}
+		td {
+			border: 1px solid lightgrey;
+			padding: 1em;
+		}
+		::-webkit-input-placeholder {
+			color: black;
+		}
+	</style>
+</head>
+<body ng-controller="MyController">
+	<table>
+		<tr ng-repeat="msg in messages">
+			<td>{{msg.from}}</td>
+			<td>{{msg.body}}</td>
+		</tr>
+	</table>
+
+	<fieldset>	
+		<input type="text" ng-model="name" placeholder="Prototype Name">
+	    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Invision Link">
+	</fieldset>
+
+	<script>
+		var app = angular.module("myapp", ["firebase"]);
+
+		function MyController($scope, $firebase) {
+			var ref = new Firebase("https://heistcast.firebaseio.com/");
+			$scope.messages = $firebase(ref);
+			$scope.addMessage = function(e) {
+				if (e.keyCode !=13) return;
+				$scope.messages.$add({from: $scope.name, body: $scope.msg});
+				$scope.msg = "";	
+			};
+		}
+	</script>
+</body>
+</html>
