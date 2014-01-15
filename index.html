@@ -11,15 +11,15 @@
 </head>
 <body ng-controller="MyController">
 	<table>
-		<tr ng-repeat="msg in messages">
-			<td>{{msg.from}}</td>
-			<td>{{msg.body}}</td>
+		<tr ng-repeat="link in links">
+			<td><a href="{{link.title}}">{{link.title}}</a></td>
+			<td><a href="{{link.body}}">{{link.body}}</a></td>
 		</tr>
 	</table>
 
 	<fieldset>	
-		<input type="text" ng-model="name" placeholder="Prototype Name">
-	    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Invision Link">
+		<input type="text" ng-model="name" ng-keydown="addLink($event)" placeholder="Prototype Name">
+	    <input type="text" ng-model="link" ng-keydown="addLink($event)" placeholder="Invision Link">
 	</fieldset>
 
 	<script>
@@ -27,11 +27,12 @@
 
 		function MyController($scope, $firebase) {
 			var ref = new Firebase("https://heistcast.firebaseio.com/");
-			$scope.messages = $firebase(ref);
-			$scope.addMessage = function(e) {
+			$scope.links = $firebase(ref);
+			$scope.addLink = function(e) {
 				if (e.keyCode !=13) return;
-				$scope.messages.$add({from: $scope.name, body: $scope.msg});
-				$scope.msg = "";	
+				$scope.links.$add({title: $scope.name, body: $scope.link});
+				$scope.link = "";
+				$scope.name = "";
 			};
 		}
 	</script>
