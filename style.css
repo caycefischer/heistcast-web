@@ -71,7 +71,3 @@ td > button:hover {
 	margin: 1em auto 3em;
 	display: block;
 }
-
-svg path {
-	fill: red;
-}
