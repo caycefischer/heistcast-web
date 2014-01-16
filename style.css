@@ -43,6 +43,27 @@ td {
 	border: 0;
 	background: 0;
 	padding: 1em;
+	position: relative;
+}
+
+td > button {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+
+	-webkit-appearance: none;
+	border: none;
+	font-size: 1.25em;
+	background: none;
+	color: #524d47;
+	cursor: pointer;
+
+	transition: color 0.134s linear;
+}
+
+td > button:hover {
+	color: #d54d28;
 }
 
 .logo {
@@ -52,5 +73,5 @@ td {
 }
 
 svg path {
-	fill: ;
+	fill: red;
 }
