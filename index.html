@@ -28,7 +28,10 @@
 	<!-- <img src="heist-logo.svg" alt="HeistCast" class="logo"> -->
 	<img src="icon_512.png" alt="HeistCast" class="logo">
 	<h1><strong>Heist</strong>Cast</h1>
-
+	
+	<div ng-show="!list">
+	    <h1>Loading...</h1>
+	</div>
 	<table>
 		<tr ng-repeat="(id, entry) in list">
 			<td>{{entry.title}}</td>
@@ -48,7 +51,7 @@
 		function ListController($scope, $firebase) {
 			var cloud = new Firebase("https://heistcast.firebaseio.com/");
 			var list = $scope.list = $firebase(cloud);
-			
+
 			$scope.addLink = function(e) {
 				if (e.keyCode === 13) {
 					list.$add({title: $scope.name, body: $scope.link});
@@ -60,6 +63,7 @@
 			$scope.removeEntry = function(id) {
 			    list.$remove(id);
 			}
+
 		}
 	</script>
 </body>
