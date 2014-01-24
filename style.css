@@ -36,17 +36,29 @@ fieldset {
 	border: 0;
 	padding: 1em;
 	margin: -1em;
+	color: whitesmoke;
+	letter-spacing: 1px;
 }
+	fieldset > p {
+		display: inline;
+	}
+
 	input {
-		font-size: 14px;
+		font-size: 16px;
 		background: whitesmoke;
 		border: 0;
 		padding: 4px;
+		font-family: "freight-sans-pro", sans-serif;
 	}
 
 	::-webkit-input-placeholder {
 		color: black;
 	}
+
+	input:focus {
+		outline: 2px solid #61a6c2;
+	}
+
 
 table {
 	width: 100%;
@@ -86,7 +98,7 @@ td > button:hover {
 	color: #d54d28;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 480px) {
 	
 	td {
 		font-size: 18px;
@@ -100,4 +112,18 @@ td > button:hover {
 	td > button {
 		top: -6em;
 	}
+	fieldset {
+		padding: 1em 2em 1em 1em;
+	}
+	input {
+		display: block;
+		margin: 0 0 1em;
+		width: 100%;
+		padding: 8px;
+	}
+
+	fieldset > p {
+		display: block;
+	}
+
 }
